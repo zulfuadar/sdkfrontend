@@ -4,12 +4,6 @@ import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import android.Manifest.permission
-import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-import androidx.core.app.ActivityCompat
-import android.content.pm.PackageManager
-import android.os.Build
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import androidx.work.*
 
 

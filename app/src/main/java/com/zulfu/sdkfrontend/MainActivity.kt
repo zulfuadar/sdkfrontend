@@ -3,16 +3,16 @@ package com.zulfu.sdkfrontend
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.zulfu.denemesdk.HiveCDNBuilder
 
 
 class MainActivity : AppCompatActivity() {
-    val TAG = "HiveCDNBuilder"
+    private val TAG = "HiveCDNBuilder"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

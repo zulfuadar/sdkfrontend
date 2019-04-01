@@ -1,17 +1,12 @@
 package com.zulfu.denemesdk
 
-import android.Manifest
+import android.app.DownloadManager
 import android.content.Context
+import android.net.Uri
 import android.os.Environment
 import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import android.app.DownloadManager
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Build
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.checkSelfPermission
 
 
 class HiveCDNWorker(private val context: Context, workerParameters: WorkerParameters) :
@@ -25,10 +20,9 @@ class HiveCDNWorker(private val context: Context, workerParameters: WorkerParame
     }
 
     private fun downloadFile(fileURL: String, fileName: String) {
-        val vdoUri = fileURL
 
         try {
-            val request = DownloadManager.Request(Uri.parse(vdoUri))
+            val request = DownloadManager.Request(Uri.parse(fileURL))
             request.setDescription("download")
             request.setTitle(fileName)
 
@@ -36,7 +30,7 @@ class HiveCDNWorker(private val context: Context, workerParameters: WorkerParame
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             request.setDestinationInExternalPublicDir(
                 Environment.DIRECTORY_DOWNLOADS,
-                "" + fileName+ ".mp4"
+                "$fileName.mp4"
             )
             val manager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
             manager.enqueue(request)
